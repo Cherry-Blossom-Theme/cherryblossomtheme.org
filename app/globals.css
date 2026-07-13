@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+:root {
+  --background: #23141c;
+  --foreground: #f5e1eb;
+  --surface: #1e1121;
+  --surface-soft: #291726;
+  --border: rgba(255, 255, 255, 0.08);
+  --muted: #b89cb3;
+  --accent: #ff82b4;
+
+  --color-pink-200: #ffd9ec;
+  --color-pink-300: #ffc1e0;
+  --color-pink-500: #ff82b4;
+  --color-pink-600: #e86ea2;
+  --header-offset: 6rem;
+}
+
+html.light {
+  --background: #fdf3f7;
+  --foreground: #281325;
+  --surface: #fff7fb;
+  --surface-soft: #f7e9ef;
+  --border: rgba(157, 79, 120, 0.12);
+  --muted: #7a5f78;
+  --accent: #dc508c;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-offset);
+  scroll-padding-bottom: var(--header-offset);
+}
+
+:target {
+  scroll-margin-top: var(--header-offset);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, sans-serif;
+}
+
+::selection {
+  background: rgba(255, 140, 191, 0.3);
+  color: #1b1020;
+}
+
+* {
+  box-sizing: border-box;
+}
