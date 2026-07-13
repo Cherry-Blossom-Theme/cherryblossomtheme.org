@@ -12,7 +12,7 @@ export function PaletteBrowser() {
   const copyToClipboard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
-    } catch (e) {
+    } catch {
     }
   };
 
