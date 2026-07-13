@@ -1,8 +1,7 @@
 import { RouterClient } from "../components/router-client";
-import { siteTagline } from "../theme";
-import { createMetadata } from "../lib/metadata";
+import { homePageMetadata } from "../lib/metadata";
 
-export const metadata = createMetadata("Home", siteTagline);
+export const metadata = homePageMetadata;
 
 export default function HomePage() {
   return <RouterClient />;

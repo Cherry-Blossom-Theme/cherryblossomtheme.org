@@ -38,13 +38,13 @@ export function PaletteBrowser() {
 
       <div className="overflow-x-auto p-5 sm:p-6 lg:p-7">
         {filtered.length === 0 ? (
-          <div className="rounded-[1.25rem] border border-dashed border-white/10 bg-white/5 p-8 text-center text-slate-400">
+          <div className="rounded-[1.25rem] border border-dashed border-white/10 bg-slate-950/60 p-8 text-center text-slate-400">
             No colors found.
           </div>
         ) : (
           <table className="w-full">
             <thead>
-              <tr className="sticky top-0 z-10 border-b border-white/10 bg-slate-950/95 text-left text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-slate-500 backdrop-blur">
+              <tr className="sticky top-0 z-10 border-b border-white/10 bg-slate-950/90 text-left text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-slate-500 backdrop-blur">
                 <th className="pb-3 pr-4">Role</th>
                 <th className="pb-3 pr-4">Hex</th>
                 <th className="pb-3 pr-4">HSL</th>
@@ -52,11 +52,11 @@ export function PaletteBrowser() {
               </tr>
             </thead>
             <tbody>
-              {filtered.map((color, index) => (
+              {filtered.map((color) => (
                 <motion.tr
                   key={color.name}
                   whileHover={{ backgroundColor: "rgba(255, 255, 255, 0.03)" }}
-                  className={`border-b border-white/5 text-sm last:border-b-0 ${index % 2 === 0 ? "bg-white/5" : "bg-white/0"}`}
+                  className="border-b border-white/5 bg-slate-950/60 text-sm last:border-b-0"
                 >
                   <td className="py-3 pr-4">
                     <div className="flex items-center gap-3">
@@ -65,19 +65,19 @@ export function PaletteBrowser() {
                     </div>
                   </td>
                   <td className="py-3 pr-4 cursor-pointer">
-                    <div onClick={() => void copyToClipboard(color.hex)} title="Click to copy" className="inline-flex items-center gap-2 rounded-md bg-white/5 px-3 py-1 transition hover:bg-white/10">
+                    <div onClick={() => void copyToClipboard(color.hex)} title="Click to copy" className="inline-flex items-center gap-2 rounded-md bg-slate-900/70 px-3 py-1 transition hover:bg-slate-900/80">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-4 w-4 text-slate-300 opacity-90"><path strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M8 4h8a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2ZM9 4v3h6V4" /></svg>
                       <span className="font-mono text-slate-300">{color.hex}</span>
                     </div>
                   </td>
                   <td className="py-3 pr-4 cursor-pointer">
-                    <div onClick={() => void copyToClipboard(color.hsl)} title="Click to copy" className="inline-flex items-center gap-2 rounded-md bg-white/5 px-3 py-1 transition hover:bg-white/10">
+                    <div onClick={() => void copyToClipboard(color.hsl)} title="Click to copy" className="inline-flex items-center gap-2 rounded-md bg-slate-900/70 px-3 py-1 transition hover:bg-slate-900/80">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-4 w-4 text-slate-300 opacity-90"><path strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M8 4h8a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2ZM9 4v3h6V4" /></svg>
                       <span className="text-slate-400">{color.hsl}</span>
                     </div>
                   </td>
                   <td className="py-3 cursor-pointer">
-                    <div onClick={() => void copyToClipboard(color.rgb.join(", "))} title="Click to copy" className="inline-flex items-center gap-2 rounded-md bg-white/5 px-3 py-1 transition hover:bg-white/10">
+                    <div onClick={() => void copyToClipboard(color.rgb.join(", "))} title="Click to copy" className="inline-flex items-center gap-2 rounded-md bg-slate-900/70 px-3 py-1 transition hover:bg-slate-900/80">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-4 w-4 text-slate-300 opacity-90"><path strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M8 4h8a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2ZM9 4v3h6V4" /></svg>
                       <span className="text-slate-400">{color.rgb.join(", ")}</span>
                     </div>

@@ -99,7 +99,6 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
             <div className="flex items-center gap-3">
               <div>
                 <p className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-pink-300">{siteName}</p>
-                <p className="mt-1 text-sm text-slate-400">{siteTagline}</p>
               </div>
             </div>
             <div className="flex items-center gap-4">
