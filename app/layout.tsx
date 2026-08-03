@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable} ${mono.variable} h-full antialiased`}>
-      <body className="min-h-full text-slate-100">{children}</body>
+      <body className="min-h-full bg-background text-foreground transition-colors">{children}</body>
     </html>
   );
 }
