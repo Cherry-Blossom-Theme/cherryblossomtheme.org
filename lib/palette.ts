@@ -92,6 +92,20 @@ export function buildJsonPalette(mode: PaletteMode) {
   );
 }
 
+export function buildYamlPalette(mode: PaletteMode): string {
+  const palette = buildPalette(mode);
+  return `mode: ${mode}\ncolors:\n${palette.colors
+    .map((color) => `  ${color.name}:\n    hex: ${color.hex}\n    rgb: [${color.rgb.join(", ")}]\n    hsl: ${color.hsl}`)
+    .join("\n")}`;
+}
+
+export function buildTomlPalette(mode: PaletteMode): string {
+  const palette = buildPalette(mode);
+  return `[palette]\nmode = "${mode}"\n\n[palette.colors]\n${palette.colors
+    .map((color) => `${color.name} = { hex = "${color.hex}", rgb = [${color.rgb.join(", ")}], hsl = "${color.hsl}" }`)
+    .join("\n")}`;
+}
+
 export function buildPaletteExport(mode: PaletteMode) {
   return {
     mode,

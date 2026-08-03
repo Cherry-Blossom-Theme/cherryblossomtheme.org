@@ -94,6 +94,31 @@ body {
   font-family: var(--font-sans), Arial, sans-serif;
 }
 
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(6px);
+}
+
+body::before {
+  inset: -8rem auto auto -8rem;
+  width: 24rem;
+  height: 24rem;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(195, 55, 105, 0.18), transparent 70%);
+}
+
+body::after {
+  inset: auto -8rem -8rem auto;
+  width: 30rem;
+  height: 30rem;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(255, 192, 219, 0.17), transparent 72%);
+}
+
 ::selection {
   background: rgba(195, 55, 105, 0.24);
   color: var(--foreground);

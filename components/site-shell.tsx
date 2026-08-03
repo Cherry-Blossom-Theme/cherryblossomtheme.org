@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { appRoutes } from "../lib/routes";
 import { siteName, siteTagline } from "../theme";
+import { PetalField } from "./petal-field";
 
 function getStoredTheme(): "dark" | "light" {
   if (typeof window === "undefined") {
@@ -30,7 +31,13 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
   const buttonLabel = theme === "dark" ? "Light mode" : "Dark mode";
 
   return (
-    <div className="min-h-screen overflow-x-hidden text-foreground">
+    <div className="relative min-h-screen overflow-x-hidden text-foreground">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <PetalField />
+        <div className="absolute left-[-8%] top-[-10%] h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute bottom-[-12%] right-[-8%] h-80 w-80 rounded-full bg-rose-200/20 blur-3xl" />
+      </div>
+
       <header className="fixed inset-x-0 top-6 z-50 pointer-events-none">
         <div className="mx-auto max-w-6xl px-4">
           <div className="pointer-events-auto flex items-center justify-between rounded-full border border-border/70 bg-card/85 px-4 py-2 shadow-[0_12px_40px_rgba(195,55,105,0.12)] backdrop-blur-xl">
@@ -96,7 +103,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
           </div>
         ) : null}
       </header>
-      <main style={{ paddingTop: "var(--header-offset)", paddingBottom: "var(--header-offset)" }} className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-4 sm:px-6 lg:px-8 lg:py-4">
+      <main style={{ paddingTop: "var(--header-offset)", paddingBottom: "var(--header-offset)" }} className="relative z-10 mx-auto flex min-h-screen w-full max-w-6xl flex-col px-4 sm:px-6 lg:px-8 lg:py-4">
         <div className="mb-3 rounded-full border border-border/70 bg-card/70 px-4 py-2 text-[0.68rem] uppercase tracking-[0.3em] text-muted-foreground">
           {activeRoute.title} • {activeRoute.description}
         </div>
